@@ -1,0 +1,43 @@
+<div id="page" class="page">
+      <!-- Header -->
+      <header id="site_header" class="header mobile-menu-hide">
+        <div class="header-content">
+          <div class="site-title-block mobile-hidden">
+            <div class="site-title">Abul <span>Asar </span></div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="site-nav">
+            <!-- Main menu -->
+            <ul id="nav" class="site-main-menu">
+              <li>
+                <%= live_patch "Home", to: Routes.live_path(@socket, AbulasarResumeWeb.HomePageLive), class: "pt-trigger" %><!-- href value = data-id without # of .pt-page. -->
+              </li>
+              <li>
+                <%= live_patch "Resume", to: Routes.live_path(@socket, AbulasarResumeWeb.ResumeLive), class: "pt-trigger" %>
+              </li>
+              <li>
+                <%= live_patch "Blogs", to: Routes.live_path(@socket, AbulasarResumeWeb.BlogsLive), class: "pt-trigger" %>
+              </li>
+              <li>
+                <a class="pt-trigger" href="#contact" data-animation="62">Contact</a>
+              </li>
+            </ul>
+            <!-- /Main menu -->
+          </div>
+          <!-- Navigation -->
+        </div>
+      </header>
+      <!-- /Header -->
+     
+      <div id="main" class="site-main">
+        <!-- Page changer wrapper -->
+        <div class="pt-wrapper">
+          <!-- Subpages -->
+          <div class="subpages">
+            <%= @inner_content %>        
+          </div>
+        </div>
+      </div>
+    </div>  
+    
