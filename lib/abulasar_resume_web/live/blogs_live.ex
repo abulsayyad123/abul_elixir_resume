@@ -4,8 +4,8 @@ defmodule AbulasarResumeWeb.BlogsLive do
 
   def mount(_params, _session, socket) do
     {:ok, blogs} = Blog.get_blogs()
-    blogs = blogs.body["data"]["user"]["publication"]["posts"]
-    socket = assign(socket, blogs: blogs )
+    blogs = get_in(blogs.body, ["data", "user", "publication", "posts"])
+    socket = assign(socket, blogs: blogs, page_no: 0)
     {:ok, socket}
   end
 
@@ -17,7 +17,6 @@ defmodule AbulasarResumeWeb.BlogsLive do
             <h2>Blog</h2>
           </div>
           <div class="page-content">
-            <!-- Blog Posts Grid -->
             <div class="blog-masonry two-columns">
               <%= for blog <- @blogs do %>
                 <div class="item">
@@ -37,13 +36,21 @@ defmodule AbulasarResumeWeb.BlogsLive do
                     </div>
                   </div>
                 </div>
-                <!-- End of Blog Post 1 -->
               <% end %>
             </div>
-            <!-- Blog Posts Grid -->
+            <button phx-click="load_more">Load More</button>
           </div>
         </div>
       </section>
     """
+  end
+
+  def handle_event("load_more", _params, socket) do
+    page_no = socket.assigns.page_no + 1
+    {:ok, blogs} = Blog.get_blogs(page_no)
+    new_blogs = get_in(blogs.body, ["data", "user", "publication", "posts"])
+    blogs = socket.assigns.blogs ++ new_blogs
+    socket = assign(socket, blogs: blogs, page_no: page_no)
+    {:noreply, socket}
   end
 end
