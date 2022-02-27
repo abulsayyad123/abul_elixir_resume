@@ -1,6 +1,7 @@
 defmodule AbulasarResumeWeb.BlogsLive do
   use AbulasarResumeWeb, :live_view
   alias AbulasarResumeWeb.Blog
+  alias AbulasarResumeWeb.BlogsDetailLive
 
   def mount(_params, _session, socket) do
     {:ok, blogs} = Blog.get_blogs()
@@ -20,21 +21,21 @@ defmodule AbulasarResumeWeb.BlogsLive do
             <div class="blog-masonry two-columns">
               <%= for blog <- @blogs do %>
                 <div class="item">
-                  <div class="blog-card">
-                    <div class="media-block">
-                      <a href="blog-post-1.html">
-                        <img class="post-image img-responsive" src=<%= blog["coverImage"] %> alt="blog-post-1" />
-                        <div class="mask"></div>
-                        <div class="post-date"><span class="day">6</span><span class="month">Dec</span><!--<span class="year">2016</span>--></div>
-                      </a>
+                    <div class="blog-card">
+                      <div class="media-block">
+                        <%= live_patch to: Routes.live_path(@socket, BlogsDetailLive, blog["slug"]) do %>
+                          <img class="post-image img-responsive" src=<%= blog["coverImage"] %> alt="blog-post-1" />
+                          <div class="mask"></div>
+                          <div class="post-date"><span class="day">6</span><span class="month">Dec</span><!--<span class="year">2016</span>--></div>
+                        <% end %>
+                      </div>
+                      <div class="post-info">
+                        <ul class="category">
+                          <li><a href="#">Travel</a></li>
+                        </ul>
+                        <a><h4 class="blog-item-title"><%= blog["title"] %></h4></a>
+                      </div>
                     </div>
-                    <div class="post-info">
-                      <ul class="category">
-                        <li><a href="#">Travel</a></li>
-                      </ul>
-                      <a href="blog-post-1.html"><h4 class="blog-item-title"><%= blog["title"] %></h4></a>
-                    </div>
-                  </div>
                 </div>
               <% end %>
             </div>

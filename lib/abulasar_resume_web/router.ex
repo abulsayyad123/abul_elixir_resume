@@ -22,6 +22,7 @@ defmodule AbulasarResumeWeb.Router do
     live "/", HomePageLive
     live "/resume", ResumeLive
     live "/blogs", BlogsLive
+    live "/notes/:slug", BlogsDetailLive
   end
 
   # Other scopes may use custom stacks.

@@ -28,6 +28,7 @@ defmodule  AbulasarResumeWeb.Blog do
             coverImage,
             content,
             contentMarkdown,
+            dateAdded,
             tags {
             name
             }
