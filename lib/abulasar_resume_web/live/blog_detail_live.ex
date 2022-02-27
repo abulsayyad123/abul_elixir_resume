@@ -1,7 +1,7 @@
 defmodule AbulasarResumeWeb.BlogsDetailLive do
   use AbulasarResumeWeb, :live_view
   alias AbulasarResumeWeb.Blog
-  alias AbulasarResumeWeb.BlogView
+  import AbulasarResumeWeb.BlogView
 
   def mount(%{"slug" => slug}, _session, socket) do
     {:ok, blog} = Blog.get_detail_blog(slug)
@@ -18,14 +18,14 @@ defmodule AbulasarResumeWeb.BlogsDetailLive do
           <div class="page-content">
             <!-- Blog Entry Content -->
             <div class="blog-post-main-image">
-              <img class="post-image img-responsive" src={BlogView.cover_image(@blog)} alt="blog-post-1" />
+              <img class="post-image img-responsive" src={cover_image(@blog)} alt="blog-post-1" />
             </div>
 
             <div class="blog-post-content">
               <h1><%= @blog["title"] %></h1>
 
               <div class="entry-meta">
-                <span class="date"><a href="#"><i class="fa fa-fw fa-clock-o"></i> 12 December, 2016</a></span>
+                <span class="date"><a href="#"><i class="fa fa-fw fa-clock-o"></i> <%= to_date(@blog["dateAdded"]) %></a></span>
                 <span class="divider">|</span>
                 <span class="autor"><a href="#"><i class="fa fa-fw fa-user"></i> AbulAsar S.</a></span>
               </div>
