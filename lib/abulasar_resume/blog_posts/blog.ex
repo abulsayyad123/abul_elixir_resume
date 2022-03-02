@@ -4,15 +4,16 @@ defmodule  AbulasarResumeWeb.Blog do
     Neuron.query("""
       {
         user(username: "#{@username}") {
-            publication {
-                posts(page: #{page}) {
-                    title
-                    brief
-                    slug
-                    cuid
-                    coverImage
-                }
+          publication {
+            posts(page: #{page}) {
+              brief
+              coverImage
+              cuid
+              dateAdded
+              slug
+              title
             }
+          }
         }
       }
     """)
@@ -20,20 +21,20 @@ defmodule  AbulasarResumeWeb.Blog do
 
   def get_detail_blog(slug) do
     Neuron.query("""
-        {
-            post(slug: "#{slug}", hostname: "#{@username}") {
-            title,
-            slug,
-            cuid,
-            coverImage,
-            content,
-            contentMarkdown,
-            dateAdded,
-            tags {
+      {
+        post(slug: "#{slug}", hostname: "#{@username}") {
+          content,
+          contentMarkdown,
+          coverImage,
+          cuid,
+          dateAdded,
+          slug,
+          title,
+          tags {
             name
-            }
+          }
         }
-        }
+      }
     """)
   end
 end
