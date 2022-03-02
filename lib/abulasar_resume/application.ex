@@ -8,6 +8,7 @@ defmodule AbulasarResume.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      AbulasarResume.Repo,
       # Start the Telemetry supervisor
       AbulasarResumeWeb.Telemetry,
       # Start the PubSub system
