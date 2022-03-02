@@ -16,13 +16,17 @@ defmodule AbulasarResumeWeb.Router do
 
   scope "/", AbulasarResumeWeb do
     pipe_through :browser
+  end
 
-    # get "/", PageController, :index
-
-    live "/", HomePageLive
-    live "/resume", ResumeLive
-    live "/blogs", BlogsLive
-    live "/notes/:slug", BlogsDetailLive
+  live_session :default, on_mount: AbulasarResumeWeb.InitAssigns do
+    scope "/", AbulasarResumeWeb do
+      pipe_through :browser
+      live "/", HomePageLive, :index
+      live "/resume", ResumeLive, :index
+      live "/blogs", BlogsLive, :index
+      live "/blogs/:slug", BlogsDetailLive, :index
+      live "/contact", ContactLive, :index
+    end
   end
 
   # Other scopes may use custom stacks.

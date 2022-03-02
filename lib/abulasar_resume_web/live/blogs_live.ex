@@ -1,7 +1,7 @@
 defmodule AbulasarResumeWeb.BlogsLive do
   use AbulasarResumeWeb, :live_view
   alias AbulasarResumeWeb.Blog
-  alias AbulasarResumeWeb.BlogsDetailLive
+  import AbulasarResumeWeb.BlogView
 
   def mount(_params, _session, socket) do
     {:ok, blogs} = Blog.get_blogs()

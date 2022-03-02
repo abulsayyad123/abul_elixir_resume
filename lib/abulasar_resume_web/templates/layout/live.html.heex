@@ -5,23 +5,15 @@
           <div class="site-title-block mobile-hidden">
             <div class="site-title">Abul <span>Asar </span></div>
           </div>
-
           <!-- Navigation -->
           <div class="site-nav">
             <!-- Main menu -->
             <ul id="nav" class="site-main-menu">
-              <li>
-                <%= live_patch "Home", to: Routes.live_path(@socket, AbulasarResumeWeb.HomePageLive), class: "pt-trigger" %><!-- href value = data-id without # of .pt-page. -->
-              </li>
-              <li>
-                <%= live_patch "Resume", to: Routes.live_path(@socket, AbulasarResumeWeb.ResumeLive), class: "pt-trigger" %>
-              </li>
-              <li>
-                <%= live_patch "Blogs", to: Routes.live_path(@socket, AbulasarResumeWeb.BlogsLive), class: "pt-trigger" %>
-              </li>
-              <li>
-                <a class="pt-trigger" href="#contact" data-animation="62">Contact</a>
-              </li>
+              <%= for {menu_txt, path} <- @nav_menu do %>
+                <li class={"#{if path == @nav_menu_path, do: "active"}"}>
+                  <%= live_patch menu_txt, to: path, class: "pt-trigger" %>
+                </li>
+              <% end %>
             </ul>
             <!-- /Main menu -->
           </div>
