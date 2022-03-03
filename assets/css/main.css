@@ -1630,6 +1630,10 @@ div.pt-page {
 
 .blog-card .blog-item-title {
   margin: 5px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 .blog-card .post-meta {

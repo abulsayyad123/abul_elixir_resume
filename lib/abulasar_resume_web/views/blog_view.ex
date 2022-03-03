@@ -16,8 +16,13 @@ defmodule AbulasarResumeWeb.BlogView do
     '<span class="day">#{day}</span><span class="month">#{month}</span>'
   end
 
+  def get_title(blog) do
+    blog["title"]
+  end
+
   defp date_iso8601(datetime) do
     {:ok, date, _} = DateTime.from_iso8601(datetime)
     date
   end
+
 end
