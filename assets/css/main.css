@@ -316,6 +316,10 @@ textarea.form-control, textarea.form-control:focus {
   margin-left: 5%;
 }
 
+.header-content .name-logo {
+  text-decoration: none;
+}
+
 /* buttons */
 .btn-primary,
 .btn-secondary,

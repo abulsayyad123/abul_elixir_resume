@@ -3,7 +3,9 @@
   <header id="site_header" class="header mobile-menu-hide">
     <div class="header-content">
       <div class="site-title-block mobile-hidden">
-        <div class="site-title">Abul <span>Asar </span></div>
+        <%= live_patch to: Routes.home_page_path(@socket, :index), class: "name-logo"  do %>
+          <div class="site-title">Abul <span>Asar </span></div>
+        <% end %>  
       </div>
       <!-- Navigation -->
       <div class="site-nav">
