@@ -14,6 +14,7 @@ defmodule  AbulasarResumeWeb.Blog do
                 dateAdded
                 slug
                 title
+                type
               }
             }
           }

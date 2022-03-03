@@ -24,5 +24,4 @@ defmodule AbulasarResumeWeb.BlogView do
     {:ok, date, _} = DateTime.from_iso8601(datetime)
     date
   end
-
 end
