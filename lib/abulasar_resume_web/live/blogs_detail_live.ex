@@ -4,8 +4,7 @@ defmodule AbulasarResumeWeb.BlogsDetailLive do
   import AbulasarResumeWeb.BlogView
 
   def mount(%{"slug" => slug}, _session, socket) do
-    {:ok, blog} = Blog.get_detail_blog(slug)
-    blog = get_in(blog.body, ["data", "post"])
+    blog = Blog.get_detail_blog(slug)
     socket = assign(socket, blog: blog)
     {:ok, socket}
   end

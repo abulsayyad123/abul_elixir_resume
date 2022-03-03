@@ -1,6 +1,9 @@
 <div class="single-page-content">
   <div class="content-area">
     <div class="page-content">
+      <%= live_patch to: Routes.blogs_path(@socket, :index)  do %>
+        <i class="fa fa-arrow-left back-button" aria-hidden="true"></i>
+      <% end %>  
       <!-- Blog Entry Content -->
       <div class="blog-post-main-image">
         <img class="post-image img-responsive" src={cover_image(@blog)} alt="blog-post-1" />

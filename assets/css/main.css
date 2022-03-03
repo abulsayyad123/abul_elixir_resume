@@ -310,6 +310,12 @@ textarea.form-control, textarea.form-control:focus {
   text-align: center;
 }
 
+.center .load-more {
+  color: #2eca7f;
+  font-size: 20px;
+  margin-left: 5%;
+}
+
 /* buttons */
 .btn-primary,
 .btn-secondary,
@@ -782,6 +788,12 @@ div.pt-page {
 
 .page-content {
   padding: 30px 50px 50px;
+}
+
+.page-content .back-button {
+  color: #2eca7f;
+  font-size: 40px;
+  cursor: pointer
 }
 
 /* custom-pages */

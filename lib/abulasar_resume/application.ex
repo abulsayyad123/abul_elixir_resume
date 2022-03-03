@@ -8,6 +8,8 @@ defmodule AbulasarResume.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Cachex, name: :hasnode_blogs},
+
       AbulasarResume.Repo,
       # Start the Telemetry supervisor
       AbulasarResumeWeb.Telemetry,
