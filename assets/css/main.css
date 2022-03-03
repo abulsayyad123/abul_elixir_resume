@@ -376,12 +376,16 @@ body > footer {
 }
 
 /* copyrights block */
-body > footer .copyrights {
+footer .copyrights {
   display: block;
-  margin-bottom: 12px;
+  margin-top: 0.5%;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   color: #9e9e9e;
+}
+
+footer .copyrights i {
+  color: red;
 }
 /* / copyrights block */
 /* / Footer */
@@ -793,7 +797,8 @@ div.pt-page {
 .page-content .back-button {
   color: #2eca7f;
   font-size: 40px;
-  cursor: pointer
+  cursor: pointer;
+  padding-bottom: 2%;
 }
 
 /* custom-pages */
@@ -2108,6 +2113,7 @@ div.pt-page {
   list-style: none;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 
 .tags li {

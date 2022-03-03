@@ -1,35 +1,39 @@
 <div id="page" class="page">
-      <!-- Header -->
-      <header id="site_header" class="header mobile-menu-hide">
-        <div class="header-content">
-          <div class="site-title-block mobile-hidden">
-            <div class="site-title">Abul <span>Asar </span></div>
-          </div>
-          <!-- Navigation -->
-          <div class="site-nav">
-            <!-- Main menu -->
-            <ul id="nav" class="site-main-menu">
-              <%= for {menu_txt, path} <- @nav_menu do %>
-                <li class={"#{if path == @nav_menu_path, do: "active"}"}>
-                  <%= live_patch menu_txt, to: path, class: "pt-trigger" %>
-                </li>
-              <% end %>
-            </ul>
-            <!-- /Main menu -->
-          </div>
-          <!-- Navigation -->
-        </div>
-      </header>
-      <!-- /Header -->
-     
-      <div id="main" class="site-main">
-        <!-- Page changer wrapper -->
-        <div class="pt-wrapper">
-          <!-- Subpages -->
-          <div class="subpages">
-            <%= @inner_content %>        
-          </div>
-        </div>
+  <!-- Header -->
+  <header id="site_header" class="header mobile-menu-hide">
+    <div class="header-content">
+      <div class="site-title-block mobile-hidden">
+        <div class="site-title">Abul <span>Asar </span></div>
       </div>
-    </div>  
+      <!-- Navigation -->
+      <div class="site-nav">
+        <!-- Main menu -->
+        <ul id="nav" class="site-main-menu">
+          <%= for {menu_txt, path} <- @nav_menu do %>
+            <li class={"#{if path == @nav_menu_path, do: "active"}"}>
+              <%= live_patch menu_txt, to: path, class: "pt-trigger" %>
+            </li>
+          <% end %>
+        </ul>
+        <!-- /Main menu -->
+      </div>
+      <!-- Navigation -->
+    </div>
+  </header>
+  <!-- /Header -->
+     
+  <div id="main" class="site-main">
+    <div class="pt-wrapper">
+      <div class="subpages">
+        <%= @inner_content %>        
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="copyrights">
+      Made with <i class="fa fa-heart" aria-hidden="true"></i> in Phoenix LiveView
+    </div>
+  </footer>
+</div>  
     
