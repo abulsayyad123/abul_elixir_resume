@@ -1,0 +1,1 @@
+call "%~dp0\abulasar_resume" eval AbulasarResume.Release.migrate
