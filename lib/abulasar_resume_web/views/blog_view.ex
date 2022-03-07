@@ -20,6 +20,7 @@ defmodule AbulasarResumeWeb.BlogView do
     blog["title"]
   end
 
+  # Private
   defp date_iso8601(datetime) do
     {:ok, date, _} = DateTime.from_iso8601(datetime)
     date

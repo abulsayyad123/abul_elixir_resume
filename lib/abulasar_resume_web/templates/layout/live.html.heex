@@ -1,6 +1,6 @@
 <div id="page" class="page">
   <!-- Header -->
-  <header id="site_header" class="header mobile-menu-hide">
+  <header id="site_header" class={"header #{@hide_class}"}>
     <div class="header-content">
       <div class="site-title-block mobile-hidden">
         <%= live_patch to: Routes.home_page_path(@socket, :index), class: "name-logo"  do %>
@@ -23,6 +23,17 @@
     </div>
   </header>
   <!-- /Header -->
+
+  <!-- Mobile Header -->
+  <div class="mobile-header mobile-visible">
+    <div class="mobile-logo-container">
+      <div class="mobile-site-title">Abul Asar</div>
+    </div>
+
+    <a class="menu-toggle mobile-visible" phx-click="toggle_menu">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
      
   <div id="main" class="site-main">
     <div class="pt-wrapper">

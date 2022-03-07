@@ -481,6 +481,16 @@ footer .copyrights i {
   z-index: 1;
 }
 
+@media only screen and (max-width: 991px) { 
+  .pt-wrapper {
+    position: relative;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 1;
+  }
+}
+
 .subpages {
   position: relative;
   width: 100%;
@@ -691,7 +701,7 @@ div.pt-page {
 
 .site-main-menu li {
   display: inline-block;
-  float: left;
+  /* float: left; */
   position: relative;
   padding: 0;
   text-align: center;
@@ -1626,6 +1636,14 @@ div.pt-page {
   width: 100%;
   margin: 0;
   height: 35vh;
+}
+
+@media only screen and (max-width: 991px) {
+  .blog-card .post-image {
+    width: 100%;
+    margin: 0;
+    height: 25vh;
+  }
 }
 
 .blog-card .post-info {
