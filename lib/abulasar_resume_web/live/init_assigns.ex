@@ -3,7 +3,6 @@ defmodule AbulasarResumeWeb.InitAssigns do
   alias AbulasarResumeWeb.Router.Helpers, as: Routes
 
   def on_mount(:default, _params, _session, socket) do
-    IO.puts "CALLED AGAIN"
     socket =
       assign(socket,
         nav_menu: [

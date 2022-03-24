@@ -1,6 +1,6 @@
 defmodule AbulasarResumeWeb.BlogsLive do
   use AbulasarResumeWeb, :live_view
-  alias AbulasarResumeWeb.Blog
+  alias AbulasarResumeWeb.BlogPosts.Blog
   alias AbulasarResumeWeb.BlogCardComponent
 
 
