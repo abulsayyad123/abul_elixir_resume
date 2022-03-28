@@ -1,9 +1,12 @@
-defmodule  AbulasarResumeWeb.BlogPosts.Blog do
+defmodule AbulasarResumeWeb.BlogPosts.Blog do
+  @behaviour AbulasarResume.Behaviours.NeuronBehaviour
+  @graphqlClient Application.compile_env(:abulasar_resume, :graphql_client)
   @username "abulasar"
+
   def get_blogs(page_no \\0) do
     page_key = "page_#{page_no}"
     { _, blogs } = Cachex.fetch(:hasnode_blogs, page_key, fn(_page_key) ->
-      with { :ok, fetched_blogs } <- page_no |> blogs_query |> Neuron.query do
+      with { :ok, fetched_blogs } <- page_no |> blogs_query |> @graphqlClient.query do
         { :commit, get_in(fetched_blogs.body, ["data", "user", "publication", "posts"]) }
       end
     end)
@@ -12,7 +15,7 @@ defmodule  AbulasarResumeWeb.BlogPosts.Blog do
 
   def get_detail_blog(slug) do
     { _, blog } = Cachex.fetch(:hasnode_blogs, slug, fn(slug) ->
-      with {:ok, fetched_blog} <-  slug |> detail_blog_query |> Neuron.query do
+      with {:ok, fetched_blog} <-  slug |> detail_blog_query |> @graphqlClient.query do
         {:commit, get_in(fetched_blog.body, ["data", "post"])}
       end
     end)
@@ -20,7 +23,6 @@ defmodule  AbulasarResumeWeb.BlogPosts.Blog do
   end
 
   # Private
-
   defp blogs_query(page_no) do
     """
       {
