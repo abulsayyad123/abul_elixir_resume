@@ -1,6 +1,14 @@
-# AbulasarResume
+# Abulasar Resume
 
-To start your Phoenix server:
+Visit https://abulasar.dev/ to view live demo of the website
+
+## About the Project
+- This is my portfolio website built in Elixir and Phoenix LiveView. I have implemented few cool things like `Graphql` client for fetching blogs, Github Action for CI/CD, deployed it on Fly.io etc.
+- I've shared my Resume and my previous experience.
+- Please go through the code and feel free to use the code :) 
+
+
+## To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
