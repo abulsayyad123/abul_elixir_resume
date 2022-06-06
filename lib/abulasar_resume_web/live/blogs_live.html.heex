@@ -4,15 +4,10 @@
       <h2>Blog</h2>
     </div>
     <div class="page-content">
-      <div class="blog-masonry two-columns">
+      <div class="blog-masonry two-columns" id="infinite-list" phx-hook="InfiniteList" phx-update="append" data-page={@page_no}>
         <%= for blog <- @blogs do %>
           <.live_component  module={BlogCardComponent} id={blog["slug"]} blog={blog} />
         <% end %>
-      </div>
-      <div class="center">
-        <button class="btn btn-secondary" phx-click="load_more">
-          Load More <i class="fa fa-caret-down load-more"></i>
-        </button>
       </div>
     </div>
   </div>

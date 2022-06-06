@@ -3,15 +3,13 @@ defmodule AbulasarResumeWeb.BlogsLive do
   alias AbulasarResumeWeb.BlogPosts.Blog
   alias AbulasarResumeWeb.BlogCardComponent
 
-
-
   def mount(_params, _session, socket) do
     blogs = Blog.get_blogs()
     socket = assign(socket, blogs: blogs, page_no: 0)
     {:ok, socket}
   end
 
-  def handle_event("load_more", _params, socket) do
+  def handle_event("load-blogs", _params, socket) do
     page_no = socket.assigns.page_no + 1
     new_blogs = page_no |> Blog.get_blogs
     blogs = socket.assigns.blogs ++ new_blogs
