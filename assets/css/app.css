@@ -124,3 +124,34 @@
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+.light {
+  width: 30rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  right: 0%;
+  z-index: 1000;
+}
+
+.meter {
+  font-size: 1rem;
+  background-color: #E2E8F0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 3rem;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.meter > span {
+  transition: width 2s ease;
+  color: rgba(26, 32, 46, var(--tw-text-opacity));
+  font-weight: 700;
+  text-align: center;
+  background-color: yellowgreen;
+  white-space: nowrap;
+  flex-direction: column;
+  display: flex;
+  justify-content:center;
+}

@@ -3,6 +3,7 @@
     <div class="page-header color-1">
       <h2>Blog</h2>
     </div>
+    <button phx-click="start_tick">Load More</button>
     <div class="page-content">
       <div class="blog-masonry two-columns" id="infinite-list" phx-hook="InfiniteList" phx-update="append" data-page={@page_no}>
         <%= for blog <- @blogs do %>

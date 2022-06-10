@@ -1,6 +1,8 @@
 <div id="page" class="page">
   <!-- Header -->
   <header id="site_header" class={"header #{@hide_class}"}>
+    <.live_component  module={AbulasarResumeWeb.BackgroundLoaderComponent} id="background-loader" {assigns} />
+
     <div class="header-content">
       <div class="site-title-block mobile-hidden">
         <%= live_patch to: Routes.home_page_path(@socket, :index), class: "name-logo"  do %>

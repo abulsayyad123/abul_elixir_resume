@@ -1,7 +1,7 @@
 defmodule AbulasarResumeWeb.BlogsLive do
   use AbulasarResumeWeb, :live_view
   alias AbulasarResumeWeb.BlogPosts.Blog
-  alias AbulasarResumeWeb.BlogCardComponent
+  alias AbulasarResumeWeb.{BlogCardComponent, BackgroundLoaderComponent}
 
   def mount(_params, _session, socket) do
     blogs = Blog.get_blogs()
@@ -16,4 +16,17 @@ defmodule AbulasarResumeWeb.BlogsLive do
     socket = assign(socket, blogs: blogs, page_no: page_no)
     {:noreply, socket}
   end
+
+  def handle_event("start_tick", _params, socket) do
+    :timer.send_interval(1000, self(), :tick)
+    {:noreply, socket}
+  end
+
+  def handle_info(:tick, socket) do
+    brightness = socket.assigns.brightness + 1
+    socket = assign(socket, brightness: brightness)
+    send_update(BackgroundLoaderComponent, id: "background-loader", brightness: brightness)
+    {:noreply, socket}
+  end
+
 end

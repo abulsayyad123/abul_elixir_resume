@@ -5,6 +5,7 @@ defmodule AbulasarResumeWeb.InitAssigns do
   def on_mount(:default, _params, _session, socket) do
     socket =
       assign(socket,
+        brightness: 10,
         nav_menu: [
           {"Home", Routes.home_page_path(socket, :index)},
           {"Resume", Routes.resume_path(socket, :index)},
@@ -18,7 +19,8 @@ defmodule AbulasarResumeWeb.InitAssigns do
     {:cont,
       socket
       |> attach_hook(:set_left_menu_active_path, :handle_params, &handle_active_tabs/3)
-      |> attach_hook(:toggle_side_drawer_menu, :handle_event, &handle_event/3)}
+      |> attach_hook(:toggle_side_drawer_menu, :handle_event, &handle_event/3)
+      }
   end
 
   def handle_active_tabs(_params, url, socket) do
