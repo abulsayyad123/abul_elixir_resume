@@ -6,7 +6,7 @@ defmodule AbulasarResumeWeb.BlogsLive do
   def mount(_params, _session, socket) do
     blogs = Blog.get_blogs()
     socket = assign(socket, blogs: blogs, page_no: 0)
-    {:ok, socket}
+    {:ok, socket, temporary_assigns: [blogs: []]}
   end
 
   def handle_event("load-blogs", _params, socket) do

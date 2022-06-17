@@ -2302,6 +2302,10 @@ blockquote footer, blockquote small, blockquote .small {
 ============================================================================= */
 
 @media only screen and (max-width: 1320px) {
+  .header {
+    display: none;
+  }
+  
   .portfolio-grid figure {
     width: 33.33333%;
   }
