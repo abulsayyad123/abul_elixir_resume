@@ -5,7 +5,6 @@ defmodule AbulasarResumeWeb.InitAssigns do
   def on_mount(:default, _params, _session, socket) do
     socket =
       assign(socket,
-        brightness: 10,
         nav_menu: [
           {"Home", Routes.home_page_path(socket, :index)},
           {"Resume", Routes.resume_path(socket, :index)},

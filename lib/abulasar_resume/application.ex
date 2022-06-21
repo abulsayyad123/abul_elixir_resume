@@ -16,7 +16,11 @@ defmodule AbulasarResume.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: AbulasarResume.PubSub},
       # Start the Endpoint (http/https)
-      AbulasarResumeWeb.Endpoint
+      AbulasarResumeWeb.Endpoint,
+
+      {AbulasarResume.Jobs.TaskRunner, nil},
+
+      # {Task.Supervisor, name: AbulasarResume.Jobs.TaskRunner},
       # Start a worker by calling: AbulasarResume.Worker.start_link(arg)
       # {AbulasarResume.Worker, arg}
     ]

@@ -18,15 +18,8 @@ defmodule AbulasarResumeWeb.BlogsLive do
   end
 
   def handle_event("start_tick", _params, socket) do
-    :timer.send_interval(1000, self(), :tick)
+    IO.inspect self()
+    AbulasarResume.Jobs.TaskRunner.start_job(self())
     {:noreply, socket}
   end
-
-  def handle_info(:tick, socket) do
-    brightness = socket.assigns.brightness + 1
-    socket = assign(socket, brightness: brightness)
-    send_update(BackgroundLoaderComponent, id: "background-loader", brightness: brightness)
-    {:noreply, socket}
-  end
-
 end
