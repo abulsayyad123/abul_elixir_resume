@@ -18,7 +18,7 @@ ARG RUNNER_IMAGE="debian:bullseye-20210902-slim"
 FROM ${BUILDER_IMAGE} as builder
 
 # install build dependencies
-RUN apt-get update -y && apt-get install -y build-essential git \
+RUN apt-get update -y && sudo apt install -y libtinfo5 && apt-get install -y build-essential git \
     && apt-get clean && rm -f /var/lib/apt/lists/*_* && apt-get install libtinfo5
 
 # prepare build dir
