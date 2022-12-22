@@ -1,5 +1,6 @@
 defmodule AbulasarResumeWeb.InitAssigns do
   import Phoenix.LiveView
+  import Phoenix.Component
   alias AbulasarResumeWeb.Router.Helpers, as: Routes
 
   def on_mount(:default, _params, _session, socket) do

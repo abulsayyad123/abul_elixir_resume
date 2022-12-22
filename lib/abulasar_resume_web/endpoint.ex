@@ -20,7 +20,7 @@ defmodule AbulasarResumeWeb.Endpoint do
     at: "/",
     from: :abulasar_resume,
     gzip: false,
-    only: ~w(assets fonts docs images favicon.ico robots.txt)
+    only: AbulasarResumeWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

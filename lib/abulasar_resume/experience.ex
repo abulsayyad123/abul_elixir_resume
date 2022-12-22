@@ -4,8 +4,8 @@ defmodule AbulasarResume.Experience do
   alias AbulasarResume.Experience
 
   schema "experiences" do
-    field :organization_name, :string, null: false
-    field :title, :string, null: false
+    # field :organization_name, :string, null: false
+    # field :title, :string, null: false
     field :job_description, :string
     field :start_date, :date
     field :end_date, :date

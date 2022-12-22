@@ -3,9 +3,10 @@
   <header id="site_header" class="header">
     <div class="header-content">
       <div class="site-title-block mobile-hidden">
-        <%= live_patch to: Routes.home_page_path(@socket, :index), class: "name-logo"  do %>
+        <.link href={~p"/"} class="name-logo">
           <div class="site-title">Abul <span>Asar </span></div>
-        <% end %>  
+        </.link>  
+
       </div>
       <!-- Navigation -->
       <div class="site-nav">
@@ -13,7 +14,7 @@
         <ul id="nav" class="site-main-menu">
           <%= for {menu_txt, path} <- @nav_menu do %>
             <li class={"#{if path == @nav_menu_path, do: "active"}"}>
-              <%= live_patch menu_txt, to: path, class: "pt-trigger" %>
+              <.link href={path} class="pt-trigger"><%= menu_txt %></.link>
             </li>
           <% end %>
         </ul>
