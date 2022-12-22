@@ -18,9 +18,10 @@ ARG RUNNER_IMAGE="debian:bullseye-20210902-slim"
 FROM ${BUILDER_IMAGE} as builder
 
 # install build dependencies
-RUN apt-get update -y && sudo apt install -y libtinfo5 && apt-get install -y build-essential git \
+RUN apt-get update -y && sudo apt install -y libncurses5 && sudo apt install libtinfo5 && apt-get install -y build-essential git \
     && apt-get clean && rm -f /var/lib/apt/lists/*_* && apt-get install libtinfo5
 
+RUN sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/local/harris/idl88/bin/bin.linux.x86_64/libtinfo.so.5
 # prepare build dir
 WORKDIR /app
 
