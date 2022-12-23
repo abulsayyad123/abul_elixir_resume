@@ -26,8 +26,20 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 import InfiniteList from "./infinite_list"
+import Typed from 'typed.js';
 
 let Hooks = { InfiniteList }
+
+Hooks.IntroTypedHook = {
+  mounted() {
+    new Typed('.sp-subtitle', {
+      strings: ["Elixirist", "Javascripter", "FullStack Engineer"],
+      typeSpeed: 30,
+      showCursor: false,
+      backDelay: 1500
+    });
+  }
+}
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks })
 
