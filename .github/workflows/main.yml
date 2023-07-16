@@ -58,18 +58,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-
-      - name: Cache yarn
-        id: yarn-cache
-        uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/**/yarn.lock')) }}
-
-      - name: Install yarn
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: make yarn
-        
+      - name: npm install and test
+        run: |
+          cd assets
+          yarn install
       - name: Setup test server
         run: MIX_ENV=test mix ecto.create
       - name: Run Test migration
