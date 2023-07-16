@@ -61,7 +61,7 @@ jobs:
       - name: npm install and test
         run: |
           cd assets
-          yarn install
+          npm ci
       - name: Setup test server
         run: MIX_ENV=test mix ecto.create
       - name: Run Test migration
