@@ -58,6 +58,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: npm install and test
+        run: |
+          cd assets
+          npm ci
       - name: Setup test server
         run: MIX_ENV=test mix ecto.create
       - name: Run Test migration
