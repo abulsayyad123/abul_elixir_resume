@@ -10,17 +10,8 @@ jobs:
   test:
     name: Build and test
 
-    strategy:
-      matrix:
-        include:
-          - elixir: 1.12.0
-            otp: 24.2
+    runs-on: ubuntu-22.04
 
-          - elixir: 1.13.2
-            otp: 24.2
-            lint: lint
-
-    runs-on: ubuntu-latest
     services:
       db:
         env:
@@ -49,21 +40,12 @@ jobs:
         key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
         restore-keys: ${{ runner.os }}-mix-
 
-    # - name: Set up Node.js 12.x
-    #   uses: actions/setup-node@v1
-    #   with:
-    #     node-version: 12.x
-
-    # - name: Restore npm cache
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: ~/.npm
-    #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-node-
-
     - name: Install dependencies
       run: mix deps.get
+    - name: Setup Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
     - name: Setup test server
       run: MIX_ENV=test mix ecto.create
     - name: Run Test migration
